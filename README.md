@@ -35,6 +35,7 @@
 - 飞书群机器人
 - Discord Webhook
 - Bark App
+- 自定义 Webhook
 
 ## 技术栈
 - **框架**: [Next.js](https://nextjs.org/) (App Router)
