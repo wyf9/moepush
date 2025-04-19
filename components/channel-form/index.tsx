@@ -5,6 +5,7 @@ import { WecomFields } from "./wecom-fields"
 import { FeishuFields } from "./feishu-fields"
 import { DiscordFields } from "./discord-fields"
 import { BarkFields } from "./bark-fields"
+import { WebhookFields } from "./webhook-fields"
 import { CHANNEL_TYPES } from "@/lib/channels"
 import { UseFormReturn } from "react-hook-form"
 import type { ChannelFormData } from "@/lib/db/schema/channels"
@@ -28,13 +29,16 @@ export function ChannelFormFields({ type, form }: ChannelFormFieldsProps) {
 
         case CHANNEL_TYPES.TELEGRAM:
             return <TelegramFields form={form} />
-            
+
         case CHANNEL_TYPES.FEISHU:
             return <FeishuFields form={form} />
-            
+
         case CHANNEL_TYPES.DISCORD:
             return <DiscordFields form={form} />
-            
+
+        case CHANNEL_TYPES.WEBHOOK:
+            return <WebhookFields form={form} />
+
         case CHANNEL_TYPES.BARK:
             return <BarkFields form={form} />
 

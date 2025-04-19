@@ -7,6 +7,7 @@ import { TelegramChannel } from "./telegram"
 import { FeishuChannel } from "./feishu"
 import { DiscordChannel } from "./discord"
 import { BarkChannel } from "./bark"
+import { WebhookChannel } from "./webhook"
 
 // 渠道类型常量
 export const CHANNEL_TYPES = {
@@ -17,6 +18,7 @@ export const CHANNEL_TYPES = {
   FEISHU: "feishu",
   DISCORD: "discord",
   BARK: "bark",
+  WEBHOOK: "webhook",
 } as const
 
 export type ChannelType = typeof CHANNEL_TYPES[keyof typeof CHANNEL_TYPES]
@@ -30,6 +32,7 @@ const channels: Record<ChannelType, BaseChannel> = {
   [CHANNEL_TYPES.FEISHU]: new FeishuChannel(),
   [CHANNEL_TYPES.DISCORD]: new DiscordChannel(),
   [CHANNEL_TYPES.BARK]: new BarkChannel(),
+  [CHANNEL_TYPES.WEBHOOK]: new WebhookChannel(),
 }
 
 // 获取所有渠道标签
@@ -57,8 +60,8 @@ export function getChannel(type: ChannelType): BaseChannel {
 
 // 发送消息
 export async function sendChannelMessage(
-  type: ChannelType, 
-  message: any, 
+  type: ChannelType,
+  message: any,
   options: any
 ): Promise<Response> {
   const channel = getChannel(type)
