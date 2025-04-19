@@ -12,7 +12,6 @@
 
 # idk if i need to add this or not
 package-lock.json
-pnpm-lock.yaml
 
 # testing
 /coverage
